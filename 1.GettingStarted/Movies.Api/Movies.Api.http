@@ -1,0 +1,18 @@
+﻿@Movies.Api_HostAddress = https://localhost:5001
+
+POST {{Movies.Api_HostAddress}}/api/movies
+Content-Type: application/json
+{
+    "Title": "Toy Story",
+    "YearOfRelease": 1995,
+    "Genres": [
+        "Adventure",
+        "Animation",
+        "Children",
+        "Comedy",
+        "Fantasy"
+    ]
+}
+
+
+###
