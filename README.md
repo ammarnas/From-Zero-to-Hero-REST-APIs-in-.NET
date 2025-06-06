@@ -13,3 +13,6 @@ Add projects and postman requests and add .gitignore
 
 
     - to do that we need to install ```Microsoft.Extensions.DependencyInjection.Abstractions``` package in the Application layer to do register the services.
+
+# Creating the movies controller
+Create the movie controller.
