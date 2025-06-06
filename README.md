@@ -18,3 +18,6 @@ Add projects and postman requests and add .gitignore
 Create the movie controller.
 
 # Implementing movie creation
+
+# Introducing mapping
+Create mapping from CreateMovieRequest to Movie ```MapToMovie```  by create my own mapping class in ```ContractMapping```
