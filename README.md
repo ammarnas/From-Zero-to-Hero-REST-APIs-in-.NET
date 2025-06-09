@@ -84,3 +84,8 @@ return CreatedAtRoute(
         value: movieResponse
     );
 ```
+
+# Implementing movie update
+- Add update endpoint.
+- Add mapping from update request to movie.
+- Add update route to ApiEndpoint.
