@@ -45,3 +45,9 @@ Place your endpoint definitions in a static class in the shared project.
 3.	Reference the Shared Library:
 Add a project reference to Movies.Shared from both your API and client projects.
 4.	Use the Shared Routes Everywhere.
+
+
+# Implementing movie retrieval
+- Add Get and GetAll Endpoint
+- Add Map to movieResponse and map To MoviesResponse
+- Fix MoviesResponse type
