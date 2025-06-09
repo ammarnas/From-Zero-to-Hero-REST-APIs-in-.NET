@@ -92,3 +92,64 @@ return CreatedAtRoute(
 
 # Implementing movie deletion
 - Add delete endpoint.
+
+# Implementing slug-based retrieval
+
+- Rename Endpoint `GetById` to `Get`
+- Update the route
+- Implement slug-based retrieval and update related endpoints
+- Implement GetBySlugAsync
+- Add Slug to movie model
+- generate slug
+- add slug to movie response
+
+- ## Using Regex.Replace Directly
+
+    ```
+    private string GenerateSlug()
+    {
+        var sluggedTitle = Regex.Replace(Title, "[^a-zA-Z0-9 _-]", string.Empty)
+            .ToLower()
+            .Replace(" ", "-");
+
+        return $"{sluggedTitle}-{YearOfRelease}";
+    }
+    ```
+    
+    - **How it works:**
+
+        Every time **GenerateSlug()** is called, a new **Regex** object is created with the pattern **[^a-zA-Z0-9 _-]** and used to replace unwanted characters.
+    -	**Performance:**
+
+        Less efficient, especially if called frequently, because the regex is parsed and compiled each time.
+    -	**Simplicity:**
+
+        Straightforward and easy to read, but not optimal for repeated use.
+
+- ## Using a Generated Regex Method
+    ```
+    private string GenerateSlug()
+    {
+        var sluggedTitle = SlugRegex().Replace(Title, string.Empty)
+            .ToLower()
+            .Replace(" ", "-");
+
+        return $"{sluggedTitle}-{YearOfRelease}";
+    }
+
+    [GeneratedRegex("[^a-zA-Z0-9 _-]", RegexOptions.NonBacktracking, 5)]
+    private static partial Regex SlugRegex();
+    ```
+
+    - **How it works:**
+
+        The **[GeneratedRegex]** attribute (C# 11/.NET 7+) generates a static, compiled regex method at build time. **SlugRegex()** returns a cached, precompiled Regex instance.
+    - **Performance:**
+
+        More efficient, as the regex is compiled once and reused, reducing overhead.
+    - **Modernity:**
+
+        Uses newer C#/.NET features for better performance and maintainability.
+
+- ## Error: No route matches the supplied values.
+    This error happen when the route or parameters value of `CreatedAtRoute` or `CreatedAtAction` is wrong.
