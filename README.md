@@ -51,3 +51,36 @@ Add a project reference to Movies.Shared from both your API and client projects.
 - Add Get and GetAll Endpoint
 - Add Map to movieResponse and map To MoviesResponse
 - Fix MoviesResponse type
+
+# Perfecting the movie creation endpoint
+## CreatedAtRoute
+-	**Purpose:** Returns a 201 Created response with a Location header pointing to a resource, using a named route.
+
+-	**Usage:** **Use when you want to reference a route by its name** (e.g., [Route("api/movies/{id}", Name = "GetMovieById")]).
+
+-	**Parameters:** Typically takes the route name, **route values** (such as the new resource's ID), and the response body.
+
+-	**Example:**
+
+```
+return CreatedAtRoute(
+        routeName: "GetMovieById",
+        routeValues: new { id = movie.Id }, // parameters of route
+        value: movieResponse);
+```
+
+## CreatedAtAction
+- **Purpose:** Returns a 201 Created response with a Location header pointing to a resource, **using a controller action name**.
+
+- **Usage:** Use when you want to reference a specific action method (e.g., GetById) in the same or another controller.
+
+- **Parameters:** Takes the action name, route values, and the response body.
+
+- **Example:**
+```
+    return CreatedAtAction(
+        actionName: nameof(GetById),
+        routeValues: new { id = movie.Id },// parameters of route
+        value: movieResponse
+    );
+```
