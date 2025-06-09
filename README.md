@@ -89,3 +89,6 @@ return CreatedAtRoute(
 - Add update endpoint.
 - Add mapping from update request to movie.
 - Add update route to ApiEndpoint.
+
+# Implementing movie deletion
+- Add delete endpoint.
