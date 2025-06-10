@@ -1,0 +1,11 @@
+
+services:
+   db:
+    image: postgres:latest
+    environment:
+        POSTGRES_USER: user
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: exampe_db
+        # POSTGRES_DB: movies_db
+    ports:
+     - "5432:5432"
