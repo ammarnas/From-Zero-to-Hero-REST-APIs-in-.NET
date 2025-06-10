@@ -156,3 +156,15 @@ return CreatedAtRoute(
 
 # Moving to a real database
 [Create PostgreSQL in Docker and connect with DBeaver](https://www.youtube.com/watch?v=27tNXzioVGI&ab_channel=MostlyCode)
+
+# Adding the database infrastructure code
+- Install **Dapper** to Application layer.
+- Install **Npgsql** to Application layer.
+- Move the docker-compose to Application layer.
+- Create Interface for db operation and create db connection using postgres.
+- Add the db connection service using extension method `AddDatabase`.
+- Register db connection service in `program.cs`.
+- Create DbInitializer to init database
+- Register DbInitializer in `AddDatabase`
+- initialize the db in `program.cs` after map controllers.
+- I Update the db connection string in the database to use `Host` instead of `Server` to work.
