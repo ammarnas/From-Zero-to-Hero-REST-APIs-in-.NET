@@ -168,3 +168,56 @@ return CreatedAtRoute(
 - Register DbInitializer in `AddDatabase`
 - initialize the db in `program.cs` after map controllers.
 - I Update the db connection string in the database to use `Host` instead of `Server` to work.
+
+# Removing the old in-memory database
+- Remove all code from `MovieRepository` of in memory db.
+- Create `genres` Table in `DbInitializer`.
+## Important Methods in Dapper
+1. **BeginTransaction**
+
+    **Purpose:** Starts a new database transaction on the current connection.
+
+    **Usage:**
+
+    ```  using var transaction = connection.BeginTransaction();```
+
+    **Effect:** 
+    All subsequent commands on this connection can be committed or rolled   back as a single unit, ensuring atomicity.
+
+2. **ExecuteAsync**
+
+    **Purpose:** Executes a SQL command asynchronously (e.g., INSERT, UPDATE, DELETE).
+
+    **Usage:**
+
+    ```  await connection.ExecuteAsync(new CommandDefinition("SQL", parameters));```
+
+    **Returns:** The number of rows affected.
+
+3. **QueryAsync**
+    **Purpose:** Executes a SQL query asynchronously and returns the result as a collection of dynamic objects or a specified type.
+
+    **Usage:**
+
+    ```  var result = await connection.QueryAsync("SQL", parameters);```
+
+    **Returns:** An **IEnumerable<T>** or **IEnumerable<dynamic>** with the query results.
+
+4. **QuerySingleOrDefaultAsync**
+    **Purpose:** Executes a SQL query asynchronously and returns a single result or a default value if no rows are found.
+
+    **Usage:**
+
+    ```  var movie = await connection.QuerySingleOrDefaultAsync<Movie>("SQL", parameters);```
+
+    **Returns:** A single object of type **T** or **null** if no result is found. Throws if more than one row is returned.
+
+5. **ExecuteScalarAsync**
+
+    **Purpose:** Executes a SQL query asynchronously and returns the first column of the first row in the result set.
+
+    **Usage:**
+
+    ```  var exists = await connection.ExecuteScalarAsync<bool>("SQL", parameters);```
+
+    **Returns:** A single value (e.g., a count, a boolean, etc.).
