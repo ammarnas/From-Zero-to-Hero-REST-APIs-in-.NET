@@ -221,3 +221,9 @@ return CreatedAtRoute(
     ```  var exists = await connection.ExecuteScalarAsync<bool>("SQL", parameters);```
 
     **Returns:** A single value (e.g., a count, a boolean, etc.).
+
+# Adding a business logic layer
+- Add `MovieService` to separate the business layer inside and keep `MovieRepository` responsible for database connection 
+- replace all usage of `MovieRepository` in controller with `MovieService`
+- Register `MovieService` in application services
+
