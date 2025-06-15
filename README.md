@@ -227,3 +227,9 @@ return CreatedAtRoute(
 - replace all usage of `MovieRepository` in controller with `MovieService`
 - Register `MovieService` in application services
 
+# Implementing validation
+- Add `FluentValidation.DependencyInjectionExtensions` Package that has FluentValidation and Dependency Injection Extensions Methods 
+- Create `MovieValidator`
+- Register the `FluentValidation` in AddApplication with singleton life time
+- We can add empty interface to mark where is the assembly of project
+- Add `ValidationMappingMiddleware` to handle the validation errors register this middleware in `program.cs`
