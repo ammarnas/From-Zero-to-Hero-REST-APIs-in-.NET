@@ -233,3 +233,6 @@ return CreatedAtRoute(
 - Register the `FluentValidation` in AddApplication with singleton life time
 - We can add empty interface to mark where is the assembly of project
 - Add `ValidationMappingMiddleware` to handle the validation errors register this middleware in `program.cs`
+
+# Cancellation token passing
+- Add cancellation token to controller, service, repository, dbConnection
