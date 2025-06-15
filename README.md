@@ -236,3 +236,11 @@ return CreatedAtRoute(
 
 # Cancellation token passing
 - Add cancellation token to controller, service, repository, dbConnection
+
+# Authentication and Authorization in REST APIs
+
+- **Authentication:** is the process of verifying who the user is.
+
+- **Authorization:** is the process of verifying what the user can do.
+
+- Add `Identity.Api` project
