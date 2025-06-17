@@ -262,3 +262,4 @@ __pycache__/
 /obj/
 .DS_Store
 /Helpers/Identity.Api/appsettings.Development.json
+/1.GettingStarted/Movies.Api/appsettings.Development.json
