@@ -244,3 +244,9 @@ return CreatedAtRoute(
 - **Authorization:** is the process of verifying what the user can do.
 
 - Add `Identity.Api` project
+
+# Implementing JWT Authorization
+
+- Install this package `Microsoft.AspNetCore.Authentication.JwtBearer`
+- Register Authorization and Authentication in `program.cs`
+- Authorize `MoviesController`

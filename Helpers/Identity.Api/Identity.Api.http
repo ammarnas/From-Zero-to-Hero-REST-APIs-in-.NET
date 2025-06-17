@@ -1,0 +1,10 @@
+﻿@Identity.Api_HostAddress = https://localhost:5003
+
+POST {{Identity.Api_HostAddress}}/token
+Content-Type: application/json
+
+{
+    "Email": "example@test.com"
+}
+
+###
