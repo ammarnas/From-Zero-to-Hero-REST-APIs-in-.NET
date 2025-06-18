@@ -264,3 +264,7 @@ return CreatedAtRoute(
 
 # Preparing the database
 - Add rating table to data base
+
+# Using the user id
+- Get the **userId** from the claim in the `IdentityExtension`
+- pass the **userId** in controller and service and repository 
