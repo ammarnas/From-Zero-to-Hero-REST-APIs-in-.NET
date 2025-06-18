@@ -257,3 +257,7 @@ return CreatedAtRoute(
 
 # Limiting actions for a trusted member
 - Add trusted member policy and use it
+
+# Where should ratings live?
+- Prepare **ApiEndpoint** 
+- Add **Rating** and **UserRating** to `MovieResponse` 
