@@ -35,6 +35,12 @@ builder.Services.AddAuthorization(x =>
 {
     x.AddPolicy(AuthConstant.AdminUserPolicyName, 
         policy => policy.RequireClaim(AuthConstant.AdminUserClaimName, "true"));
+
+    // Any user with the trusted member claim or admin user claim can access this policy
+    x.AddPolicy(AuthConstant.TrustedMemberPolicyName,
+        policy => policy.RequireAssertion(x =>
+            x.User.HasClaim(c => c is { Type: AuthConstant.AdminUserClaimName, Value: "true" }) ||
+            x.User.HasClaim(c => c is { Type: AuthConstant.TrustedMemberClaimName, Value: "true"})));
 });
 
 builder.Services.AddControllers();

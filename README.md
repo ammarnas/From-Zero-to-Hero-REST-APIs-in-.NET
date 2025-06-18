@@ -254,3 +254,6 @@ return CreatedAtRoute(
 # Limiting actions for an admin
 - Add **Admin** Auth Policy in `Program.cs`
 - Use **Admin** Policy in `MoviesController`
+
+# Limiting actions for a trusted member
+- Add trusted member policy and use it
