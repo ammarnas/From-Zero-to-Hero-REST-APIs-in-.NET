@@ -4,7 +4,12 @@ POST {{Identity.Api_HostAddress}}/token
 Content-Type: application/json
 
 {
-    "Email": "example@test.com"
+    "userId": "509DF464-4115-4008-AC19-AAD059B7ED56",
+    "email": "example@test.com",
+    "customClaims": {
+        "admin": true,
+        "trustedMember": true
+    } 
 }
 
 ###

@@ -250,3 +250,7 @@ return CreatedAtRoute(
 - Install this package `Microsoft.AspNetCore.Authentication.JwtBearer`
 - Register Authorization and Authentication in `program.cs`
 - Authorize `MoviesController`
+
+# Limiting actions for an admin
+- Add **Admin** Auth Policy in `Program.cs`
+- Use **Admin** Policy in `MoviesController`
