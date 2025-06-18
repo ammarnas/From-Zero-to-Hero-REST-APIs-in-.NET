@@ -261,3 +261,6 @@ return CreatedAtRoute(
 # Where should ratings live?
 - Prepare **ApiEndpoint** 
 - Add **Rating** and **UserRating** to `MovieResponse` 
+
+# Preparing the database
+- Add rating table to data base

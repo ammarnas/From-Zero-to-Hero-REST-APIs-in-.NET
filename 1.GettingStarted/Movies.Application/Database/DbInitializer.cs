@@ -30,11 +30,21 @@ public class DbInitializer
                 using btree (slug);
             """);
 
-            
+
         await connection.ExecuteAsync("""
             CREATE TABLE IF NOT EXISTS genres (
                 movieId UUID references movies (id),
                 name Text not null
+            );
+            """);
+
+            
+        await connection.ExecuteAsync("""
+            CREATE TABLE IF NOT EXISTS ratings (
+                userId UUID ,
+                movieId UUID references movies (id),
+                rating integer not null,
+                primary key (userId, movieId)
             );
             """);
     }
