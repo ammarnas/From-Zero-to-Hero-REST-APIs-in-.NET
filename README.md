@@ -268,3 +268,9 @@ return CreatedAtRoute(
 # Using the user id
 - Get the **userId** from the claim in the `IdentityExtension`
 - pass the **userId** in controller and service and repository 
+
+# Updating the existing functionality to support ratings
+- Add **Rating** and **UserRating** to `Movie`
+- Add `IRatingRepository` and implement it and register it in **ApplicationExtension`
+- Uss **IRatingRepository** in **MovieService** to update the movie
+
